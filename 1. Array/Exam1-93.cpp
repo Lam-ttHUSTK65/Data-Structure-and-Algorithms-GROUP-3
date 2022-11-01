@@ -11,22 +11,15 @@ function heaptify( A[],n){
     if (right < end && A[right] > A[largest]) 
         largest = right;
     if (largest != i)
-        swap(&A[i], &A[largest]);
+        swap(A[i], A[largest]);
         heapify(A, largest)   
-function BuildHeap(A[])
-{
-    int i = (end - 2) / 2;
-    while (i >= 0) 
-        heapify(A, i--); 
-}
 function  heapsort(int A[], int n)
 {
-    end = n;
-    BuildHeap(A);
-    while (end != 1)
-    {
-        swap(&A[0], &A[end - 1]);
-        end--;
-        heapify(A, 0);
-    }
+    for (int i = n / 2 - 1; i >= 0; i--) 
+        heapify(arr, n, i); 
+    for (int i=n-1; i>0; i--) 
+    { 
+        swap(arr[0], arr[i]); 
+        heapify(arr, i, 0); 
+    } 
 }
