@@ -1,4 +1,10 @@
-Code:
+/*
+Algorithm:
+Function convert(A)
+A[0]=A[1]=A[!A[1]]
+*/
+
+//Code:
 #include <iostream>
 using namespace std;
 void convert(int arr[])
@@ -22,6 +28,3 @@ int main()
     return 0;
 }
 
-Algorithm:
-Function convert(A)
-A[0]=A[1]=A[!A[1]]

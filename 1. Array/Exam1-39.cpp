@@ -8,7 +8,6 @@ Algorithm:
 */
 
 #include <bits/stdc++.h>
-//#include <vector>
 using namespace std;
  
 int maxSum(vector<int> const &numbers)

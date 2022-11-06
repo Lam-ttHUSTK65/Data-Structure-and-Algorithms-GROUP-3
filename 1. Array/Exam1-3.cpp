@@ -1,4 +1,19 @@
-Code:
+/*
+Algorithm:
+Function printAllSubarrays (A, n)
+For i=0 to n do {
+  Sum =0
+     For j=I to n do {
+              Sum += A[j]
+If Sum =0 { 
+cout}
+	}
+}
+Return 0;
+//Hien
+*/
+
+//Code:
 #include <iostream>
 #include <unordered_map>
 using namespace std;
@@ -23,16 +38,3 @@ int main()
     printAllSubarrays(nums, n);
     return 0;
 }
-
-Algorithm:
-Function printAllSubarrays (A, n)
-For i=0 to n do {
-  Sum =0
-     For j=I to n do {
-              Sum += A[j]
-If Sum =0 { 
-cout}
-	}
-}
-Return 0;
-//Hien
