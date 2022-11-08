@@ -1,5 +1,4 @@
 //Heap Sort Algorithm
-function swap(*x,*y)
 int LEFT(int i) {return (2*i + 1);}
 int RIGHT(int i) {return (2*i + 2);}
 function heaptify( A[],n,i){
