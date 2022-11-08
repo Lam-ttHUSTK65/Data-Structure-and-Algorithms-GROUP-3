@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int main(){
-	int a[]={1,-3,9,7,-8,6,10}; 
+	int a[]={1, -3, 9, 7, -8, 6, 10, 101, -200, -21, 67, 58, 31, -50, -1000, 10, 3, 1, 9, -9}; 
     int n = sizeof(a)/4; 
     int maxsum = 0; 
     int s = 0;
