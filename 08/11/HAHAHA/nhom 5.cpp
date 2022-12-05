@@ -26,3 +26,5 @@ int main(){
     for(int i=b;i<=e;i++) cout<<a[i]<<" ";
 	return 0;
 }
+
+
