@@ -2,7 +2,8 @@
 // Tương tự với trường hợp M = 2 (node chỉ đến next thêm 1 lần)
 // Tương tự với trường hợp M = 3 (node chỉ đến next thêm 2 lần)
 
-#include<iostream>
+#include <bits/stdc++.h>
+#include <ctime>
 using namespace std;
 
 int counter = 1;

@@ -124,7 +124,7 @@ void XuatNode(Node* node)
     cout << "Address: " << node ->data.diaChi << endl;
 
     cout << "Class: "  << node ->data.lop << endl;
-	
+
     cout << "Department: " << node ->data.khoa << endl;
 }
 void PrintList(LinkedList l)
@@ -256,6 +256,7 @@ int main()
 	cout << endl;
 	int len = Length(list);
 	cout << "Length of list: " << len << endl;
+	SinhViensameNgaySinh(list);
 	DestroyList(list);
 	return 0;
 }
