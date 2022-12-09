@@ -57,8 +57,8 @@ Phân chia code 500 bài theo từng phần
 10. Linked List
     Hiền: 3, 27
     Hưng: 9, 33
-    Lâm: 15
-    Ninh: 21
+    Lâm: 15, 27
+    Ninh: 21, 33
 
 11. Matrix
     Hiền: 3, 27
