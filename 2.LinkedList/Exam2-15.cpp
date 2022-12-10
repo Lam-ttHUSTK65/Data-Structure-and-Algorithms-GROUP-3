@@ -8,99 +8,111 @@ For example, merging lists {1, 2, 3} and {7, 13, 1} should yield {1, 7, 2, 13, 3
 #include <bits/stdc++.h>
 using namespace std;
 
-// A Linked List Node
-struct Node
-{
-    int data;
-    struct Node* next;
+struct Node {
+    int value;
+    Node* next;
 };
- 
-// Helper function to print a given linked list
-void printList(struct Node* head)
-{
-    struct Node* ptr = head;
-    while (ptr)
-    {
-        cout << ptr->data << "  ";
-        ptr = ptr->next;
-    }
- 
-    printf("NULL\n");
-}
- 
-// Helper function to insert a new node at the beginning of the linked list
-void push(struct Node** head, int data)
-{
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->next = *head;
-    *head = newNode;
-}
- 
-// Function to construct a linked list by merging alternate nodes of
-// two given linked lists using a dummy node
-struct Node* shuffleMerge(struct Node* a, struct Node* b)
-{
-    struct Node dummy;
-    struct Node* tail = &dummy;
-    dummy.next = NULL;
- 
-    while (1)
-    {
-        // empty list cases
-        if (a == NULL)
-        {
-            tail->next = b;
-            break;
-        }
- 
-        else if (b == NULL)
-        {
-            tail->next = a;
-            break;
-        }
- 
-        // common case: move two nodes to the tail
-        else {
-            tail->next = a;
-            tail = a;
-            a = a->next;
- 
-            tail->next = b;
-            tail = b;
-            b = b->next;
-        }
-    }
- 
-    return dummy.next;
-}
- 
- 
-int main(void)
-{
-    // input keys
-    int keys[] = { 1, 2, 3, 4, 5, 6, 7 };
-    int n = sizeof(keys)/sizeof(keys[0]);
- 
-    struct Node *a = NULL, *b = NULL;
-    for (int i = n - 1; i >= 0; i = i - 2) {
-        push(&a, keys[i]);
-    }
- 
-    for (int i = n - 2; i >= 0; i = i - 2) {
-        push(&b, keys[i]);
-    }
- 
-    // print both lists
-    cout << "First List: ";
-    printList(a);
- 
-    cout << "Second List: ";
-    printList(b);
- 
-    struct Node* head = shuffleMerge(a, b);
-    cout << "After Merge: ";
-    printList(head);
 
-    return 0;
+struct lisT {
+    Node* initialNode, * lastedNode;
+};
+
+//khoi tao danh sach da thuc
+void newList(lisT *l) {
+    l->initialNode = l->lastedNode = NULL;
+}
+
+//tao mot node moi
+Node* callNode(int N) {
+    Node* p;
+    p = new Node;
+    if (p == NULL) return NULL;
+    p->value = N;
+    p->next = NULL;
+    return p;
+}
+
+//Gan Node p vao danh sach
+void addNode(lisT* list, Node*p) {
+    if (list->initialNode == NULL) { list->initialNode = list->lastedNode = p;}
+    else
+    {
+        list->lastedNode->next = p; //gan dia chi nut cuoi bang p
+        list->lastedNode = p; //chuyen p thanh nut cuoi
+    }
+}
+
+//them node voi he so va so mu cho truoc
+void attachNode(lisT*list, int N) {
+    Node* pDT = callNode(N);
+    if (pDT == NULL) return;
+    addNode(list, pDT);
+}
+
+//tao da thuc
+void createList(lisT *list) {
+    int number;
+    cout << "Number of elements of the array: "; cin >> number;
+    int N;
+    int i = 0; //dem so phan tu
+    do
+    {
+    i++;
+    cout << "Enter the element number " << i << endl;
+    cout << "Enter value: "; cin >> N;
+    attachNode(list, N);
+    cout << endl;
+    } while (i != number);
+}
+
+void printList(lisT list) {
+    Node* p;
+    p = list.initialNode;
+    cout << "\nList number:";
+    while (p != NULL) {
+    cout << p->value <<"   ";
+    p = p->next;
+    }
+}
+
+Node* attact(Node* d, int M){
+    Node *p;
+    p->value = M;
+    d->next = p;
+    d = p;
+    return d;
+}
+
+lisT mergeList(lisT &list1 , lisT &list2){
+	lisT list3 ;
+    newList(&list3) ;
+	Node* p1 = list1.initialNode ;
+	Node* p2 = list2.initialNode ;
+	Node* p3 = list3.initialNode ;
+	while(p1 != NULL||p2 != NULL){
+			p3->next = p1 ;
+			p3=p1 ;
+			p1=p1->next ;
+	}
+	if(p1==NULL){
+		p3->next=p2;
+	}
+	else{
+		p3->next=p1 ;
+	} 
+	return list3 ;
+}
+
+int main()
+{
+    lisT List1;
+    newList(&List1);
+    createList(&List1);
+
+    lisT List2;
+    newList(&List2);
+    createList(&List2);
+
+    lisT List3 = mergeList(List1, List2);
+    printList(List3);
 }
