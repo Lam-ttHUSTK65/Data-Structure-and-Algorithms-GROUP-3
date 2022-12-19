@@ -1,4 +1,4 @@
-// Given a linked list, check if it is a palindrome or not. 
+// Given a linked list, check if it is a palindrome or not.
 //For example,{ 1, 3, 5, 3, 1}
 
 #include <bits/stdc++.h>
